@@ -143,7 +143,7 @@ subgraph cluster_0 {
 "]
 
 fontsize=40
-label="Stolen Model"
+label="\"Stolen Model\""
 }
 
 }
