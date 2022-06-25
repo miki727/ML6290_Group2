@@ -46,5 +46,4 @@ Jiujiu Yang ([hello99yang@gwu.edu](mailto:hello99yang@gwu.edu))
   * male: 
   * term 360: Binary numeric input, whether the mortgage is a standard 360 month mortgage (1) or a different type of mortgage (0).
 
-​		
-
+​	
