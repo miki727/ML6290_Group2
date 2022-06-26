@@ -109,9 +109,9 @@ Among Generalized linear models (GLM), Monotonic extreme gradient boosting (MXGB
 
 <img src="A02_global_feature_importance.png" alt="image-20220626012215871" style="zoom: 67%;" />
 
-![image-20220626151930768](image-20220626151930768.png)
+<img src="image-20220626163159967.png" alt="image-20220626163159967" style="zoom:80%;" />
 
-<img src="image-20220626151959994.png" alt="image-20220626151959994" style="zoom: 50%;" />
+
 
 
 
