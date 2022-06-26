@@ -1,6 +1,6 @@
 # ML6290_Group2 Home Mortgage Disclosure Act
 
-## • Structure 
+
 
 ### - Group information 
 
@@ -11,6 +11,10 @@ Suyash Shrivastava ([suyash65@gwu.edu](mailto:suyash65@gwu.edu))
 Jiujiu Yang ([hello99yang@gwu.edu](mailto:hello99yang@gwu.edu))
 
 
+
+### comparison of the three models, selecting a best model, and then working on the best model with bias testing, red-teaming, and model debugging.
+
+Among Generalized linear models (GLM), Monotonic extreme gradient boosting (MXGB), and explainable boosting machine (EBM) models, the highest area under curve (AUC) 0.8249 belongs to ebm model. Therefore, ebm model is the best model**(MXGB‘s full name??? Revise: Extend the models' name!!!)**. Spliting the different groups within "black", "asian", "white", "male", and "female" to do the bias testing by using the adverse impact ratio (AIR) and AUC. Model extraction attack is for red-teaming.  Last, sensitivity analysis (stress testing), residual analysis, and remediation (remove outliers and down-sample to increase signal from high-priced loans) are in order to make model debugging.
 
 #### - Intended use
 
@@ -29,6 +33,8 @@ Jiujiu Yang ([hello99yang@gwu.edu](mailto:hello99yang@gwu.edu))
 #### \- Training data 
 
 * Home Mortgage Disclosure Act (HMDA) labeled training data.
+  * https://github.com/jphall663/GWU_rml/tree/master/assignments/data
+
 * The data is split into training data as 70%, and validation data as 30%.
 
 * Train data rows = 112253, columns = 23.
@@ -76,6 +82,7 @@ Jiujiu Yang ([hello99yang@gwu.edu](mailto:hello99yang@gwu.edu))
 #### \- Evaluation data
 
 * Home Mortgage Disclosure Act (HMDA) unlabeled test data.
+  * https://github.com/jphall663/GWU_rml/tree/master/assignments/data
 * Test data rows = 19831, columns = 22.
 * Difference: Training data has a target variable "high_priced" than test data does.
 
@@ -83,15 +90,66 @@ Jiujiu Yang ([hello99yang@gwu.edu](mailto:hello99yang@gwu.edu))
 
 * **Inputs:** property_value_std, no_intro_rate_period_std, loan_amount_std, income_std, conforming, intro_rate_period_std, debt_to_income_ratio_std, term_360
 * **Target:** high_priced
-* 
+* **Best model:** explainable boosting machine (EBM)
+* **Software:** interpret
+* **Software version:** interpret (0.2.7)
+* **Hyperparameters:** the best cutoff is 0.17 **???** 
 
 #### - Quantitative analysis 
 
-The model is accurate enough because of R2=0.79 and RMSE=0.06, and importantly, very stable.
+* Model selection:
+
+  | Model | AUC    |
+  | ----- | ------ |
+  | GLM   | 0.7538 |
+  | MXGB  | 0.7921 |
+  | EBM   | 0.8249 |
+
+* Feature importance
+
+<img src="/Users/xuanzhao/GWU/6290-ML/A01/A02_global_feature_importance.png" alt="image-20220626012215871" style="zoom: 67%;" />
+
+![image-20220626151930768](/Users/xuanzhao/Library/Application Support/typora-user-images/image-20220626151930768.png)
+
+<img src="/Users/xuanzhao/Library/Application Support/typora-user-images/image-20220626151959994.png" alt="image-20220626151959994" style="zoom: 50%;" />
+
+
+
+* Discrimination
+
+  | Compare v. Control            | AIR   |
+  | ----------------------------- | ----- |
+  | Asian people vs. White people | 1.196 |
+  | Black people vs. White people | 0.740 |
+  | Females vs. Males             | 0.948 |
+
+
+
+* According to grid search results, the remediated EBM retrained with AUC is 0.7878 above 0.8 AIR (0.8002).
+
+  <img src="/Users/xuanzhao/Library/Application Support/typora-user-images/image-20220626014824131.png" alt="image-20220626014824131" style="zoom:67%;" />
+
+* Adversarial examples that can reliably evoke extremely low and high enough predictions from the blackbox API (0.38 is likely above the cutoff for most credit models.). These can most easily be used to falsify a loan application to recieve a low-priced loan (using low adversaries). Or they could be used to ensure someone else recievces a high-priced loan.
+
+  ![image-20220626153244972](/Users/xuanzhao/Library/Application Support/typora-user-images/image-20220626153244972.png)
+
+
+
+* Remediation (**consider the description here and the following points???**)
+
+  | Partition  | AUC    |
+  | ---------- | ------ |
+  | Validation | 0.7949 |
+
+
 
 #### - Ethical considerations
 
+* Different criteria for models may cause different results. Training data used is Community, Transparency, Inclusivity, Privacy, and Topic-neutrality. Because of privacy considerations, the model does not take into account user history when making judgments about applicants’ background.
 
+#### - Caveats and Recommendations
+
+* The training data are unbalanced, which may cause some unbalanced results in different groups for evaluation.
 
 
 
