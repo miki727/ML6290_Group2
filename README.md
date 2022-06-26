@@ -12,7 +12,7 @@ Jiujiu Yang ([hello99yang@gwu.edu](mailto:hello99yang@gwu.edu))
 
 
 
-### comparison of the three models, selecting a best model, and then working on the best model with bias testing, red-teaming, and model debugging.
+### comparison of the three models, selecting a best model, and then working on the best model with bias testing, red-teaming, and model debugging. (DELETE BEFORE FINAL SUBMIT)
 
 Among Generalized linear models (GLM), Monotonic extreme gradient boosting (MXGB), and explainable boosting machine (EBM) models, the highest area under curve (AUC) 0.8249 belongs to ebm model. Therefore, ebm model is the best model**(MXGB‘s full name??? Revise: Extend the models' name!!!)**. Spliting the different groups within "black", "asian", "white", "male", and "female" to do the bias testing by using the adverse impact ratio (AIR) and AUC. Model extraction attack is for red-teaming.  Last, sensitivity analysis (stress testing), residual analysis, and remediation (remove outliers and down-sample to increase signal from high-priced loans) are in order to make model debugging.
 
@@ -107,11 +107,11 @@ Among Generalized linear models (GLM), Monotonic extreme gradient boosting (MXGB
 
 * Feature importance
 
-<img src="/Users/xuanzhao/GWU/6290-ML/A01/A02_global_feature_importance.png" alt="image-20220626012215871" style="zoom: 67%;" />
+<img src="A02_global_feature_importance.png" alt="image-20220626012215871" style="zoom: 67%;" />
 
-![image-20220626151930768](/Users/xuanzhao/Library/Application Support/typora-user-images/image-20220626151930768.png)
+![image-20220626151930768](image-20220626151930768.png)
 
-<img src="/Users/xuanzhao/Library/Application Support/typora-user-images/image-20220626151959994.png" alt="image-20220626151959994" style="zoom: 50%;" />
+<img src="image-20220626151959994.png" alt="image-20220626151959994" style="zoom: 50%;" />
 
 
 
@@ -127,11 +127,11 @@ Among Generalized linear models (GLM), Monotonic extreme gradient boosting (MXGB
 
 * According to grid search results, the remediated EBM retrained with AUC is 0.7878 above 0.8 AIR (0.8002).
 
-  <img src="/Users/xuanzhao/Library/Application Support/typora-user-images/image-20220626014824131.png" alt="image-20220626014824131" style="zoom:67%;" />
+  <img src="image-20220626014824131.png" alt="image-20220626014824131" style="zoom:67%;" />
 
 * Adversarial examples that can reliably evoke extremely low and high enough predictions from the blackbox API (0.38 is likely above the cutoff for most credit models.). These can most easily be used to falsify a loan application to recieve a low-priced loan (using low adversaries). Or they could be used to ensure someone else recievces a high-priced loan.
 
-  ![image-20220626153244972](/Users/xuanzhao/Library/Application Support/typora-user-images/image-20220626153244972.png)
+  ![image-20220626153244972](image-20220626153244972.png)
 
 
 
