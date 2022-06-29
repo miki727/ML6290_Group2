@@ -66,7 +66,7 @@ Among Generalized linear models (GLM), Monotonic extreme gradient boosting (MXGB
   * **debt_to_income_ratio_std:** Numeric input, standardized debt-to-income ratio for mortgage applicants.
   * **high_priced:** Binary target, whether (1) or not (0) the annual percentage rate (APR) charged for a mortgage is 150 basis points (1.5%) or more above a survey-based estimate of similar mortgages. (High-priced mortgages are legal, but somewhat punitive to borrowers. High-priced mortgages often fall on the shoulders of minority home owners, and are one of many issues that perpetuates a massive disparity in overall wealth between different demographic groups in the US.)
 
- * Define the meaning of all engineered columns
+ * Define the meaning of all engineered columns （改动feature engineered）
    * **term 360:** Binary numeric input, whether the mortgage is a standard 360 month mortgage (1) or a different type of mortgage (0).
    * **conforming:** Binary numeric input, whether the mortgage conforms to normal standards (1), or whether the loan is different (0), e.g., jumbo, HELOC, reverse mortgage, etc.
    * **debt_to_income_ratio_missing:** Binary numeric input, missing marker (1) for debt to income ratio std.
