@@ -12,15 +12,15 @@ Jiujiu Yang ([hello99yang@gwu.edu](mailto:hello99yang@gwu.edu))
 
 
 
-### comparison of the three models, selecting a best model, and then working on the best model with bias testing, red-teaming, and model debugging. (DELETE BEFORE FINAL SUBMIT)
+### Comparison of the three models, selecting the best model, and then working on the best model with bias testing, red-teaming, and model debugging. (DELETE BEFORE FINAL SUBMIT)
 
-Among Generalized linear models (GLM), Monotonic extreme gradient boosting (MXGB), and explainable boosting machine (EBM) models, the highest area under curve (AUC) 0.8249 belongs to ebm model. Therefore, ebm model is the best model**(MXGB‘s full name??? Revise: Extend the models' name!!!)**. Spliting the different groups within "black", "asian", "white", "male", and "female" to do the bias testing by using the adverse impact ratio (AIR) and AUC. Model extraction attack is for red-teaming.  Last, sensitivity analysis (stress testing), residual analysis, and remediation (remove outliers and down-sample to increase signal from high-priced loans) are in order to make model debugging.
+Among Generalized Linear Model (GLM), Monotonic Extreme Gradient Boosting (MXGB), and Explainable Boosting Machine (EBM) model, the highest area under curve (AUC) belonged to for EBM model with a value of 0.8249. Therefore, EBM model is the best model amongst the 3 models. Bias testing was done by spliting the different groups like "black", "asian", "white", "male", and "female" and calculating the adverse impact ratio (AIR) and area under the curve (AUC). Model extraction attack was done via red-teaming.  Lastly, sensitivity analysis (stress testing), residual analysis, and remediation (removing outliers and down-sampling to increase signal from high-priced loans) were done to ensure model debugging.
 
 #### - Intended use
 
 ##### * Primary intended uses (1st & 2nd points: business values) (5#) 
 
-* Intended to be used for bank systems to make a decision whether they lend to the mortgage applicants based on those lenders’ personal backgrounds, such as their standardized income, race, gender, etc.
+* Intended to be used for banks/ financial institutions to decide whether to lend money to mortgage applicants based on their personal background such as their income, race, gender, etc.
 
 ##### * Primary intended users (3rd points)
 
@@ -35,56 +35,56 @@ Among Generalized linear models (GLM), Monotonic extreme gradient boosting (MXGB
 * Home Mortgage Disclosure Act (HMDA) labeled training data.
   * https://github.com/jphall663/GWU_rml/tree/master/assignments/data
 
-* The data is split into training data as 70%, and validation data as 30%.
+* The data is split in 70%-30% ratio. Training data constitutes 70%, and validation data cnstitutes the remaining 30%.
 
-* Train data rows = 112253, columns = 23.
+* Training data: Rows = 112253, Columns = 23.
 
-​		Validation data rows = 48085, columns = 23.
+* Validation data: Rows = 48085, Columns = 23.
 
-* the meaning of all training data columns:
+* Meaning of all the columns in training data :
   * **row_id:** index
-  * **black:** Applicants with black skin
-  * **asian:**  Applicants with yellow skin
-  * **white:** Applicants with white skin
+  * **black:** Applicants who are black
+  * **asian:**  Applicants who are asian
+  * **white:** Applicants who are white
   * **amind:** Applicants with **???**
   * **hipac:** **???**
-  * **hispanic:** **???**
-  * **non_hispanic:** **???**
-  * **male:** gender in male
-  * **female:** gender in female
-  * **agegte62:** Applicants' age are greater than 62
-  * **agelt62:** Applicants' age are lower than 62
+  * **hispanic:** Applicants who are hispanic
+  * **non_hispanic:** Applicants who are not hispanic
+  * **male:** Gender of the applicant is male
+  * **female:** Gender of the applicant is female
+  * **agegte62:** Applicants' age is greater than 62
+  * **agelt62:** Applicants' age is lower than 62
   * **term 360:** Binary numeric input, whether the mortgage is a standard 360 month mortgage (1) or a different type of mortgage (0).
   * **conforming:** Binary numeric input, whether the mortgage conforms to normal standards (1), or whether the loan is different (0), e.g., jumbo, HELOC, reverse mortgage, etc.
-  * **debt_to_income_ratio_missing:** Binary numeric input, missing marker (1) for debt to income ratio std.
+  * **debt_to_income_ratio_missing:** Binary numeric input, missing marker (1) for std. debt to income ratio.
   * **loan_amount_std:** Numeric input, standardized amount of the mortgage for applicants.
-  * **loan_to_value_ratio_std:** Numeric input, ratio of the mortgage size to the value of the property for mortgage applicants.
-  * **no_intro_rate_period_std:** Binary numeric input, whether or not a mortgage does not include an introductory rate period.
+  * **loan_to_value_ratio_std:** Numeric input, ratio of the size of the mortgage to the value of the applicant's property.
+  * **no_intro_rate_period_std:** Binary numeric input, whether or not a mortgage includes an introductory rate period.
   * **intro_rate_period_std:** Numeric input, standardized introductory rate period for mortgage applicants.
   * **property_value_std:** Numeric input, value of the mortgaged property.
-  * **income_std:** Numeric input, standardized income for mortgage applicants.
-  * **debt_to_income_ratio_std:** Numeric input, standardized debt-to-income ratio for mortgage applicants.
-  * **high_priced:** Binary target, whether (1) or not (0) the annual percentage rate (APR) charged for a mortgage is 150 basis points (1.5%) or more above a survey-based estimate of similar mortgages. (High-priced mortgages are legal, but somewhat punitive to borrowers. High-priced mortgages often fall on the shoulders of minority home owners, and are one of many issues that perpetuates a massive disparity in overall wealth between different demographic groups in the US.)
+  * **income_std:** Numeric input, standardized income of the applicants.
+  * **debt_to_income_ratio_std:** Numeric input, standardized debt-to-income ratio of the applicants.
+  * **high_priced:** Binary input, whether (1) or not (0) the annual percentage rate (APR) charged for a mortgage is 150 basis points (1.5%) or more above a survey-based estimate of similar mortgages. (High-priced mortgages are legal, but somewhat punitive to borrowers. High-priced mortgages often fall on the shoulders of minority home owners, and are one of many issues that perpetuates a massive disparity in overall wealth between different demographic groups in the US.)
 
  * Define the meaning of all engineered columns （改动feature engineered）
    * **term 360:** Binary numeric input, whether the mortgage is a standard 360 month mortgage (1) or a different type of mortgage (0).
    * **conforming:** Binary numeric input, whether the mortgage conforms to normal standards (1), or whether the loan is different (0), e.g., jumbo, HELOC, reverse mortgage, etc.
    * **debt_to_income_ratio_missing:** Binary numeric input, missing marker (1) for debt to income ratio std.
    * **loan_amount_std:** Numeric input, standardized amount of the mortgage for applicants.
-   * **loan_to_value_ratio_std:** Numeric input, ratio of the mortgage size to the value of the property for mortgage applicants.
-   * **no_intro_rate_period_std:** Binary numeric input, whether or not a mortgage does not include an introductory rate period.
-   * **intro_rate_period_std:** Numeric input, standardized introductory rate period for mortgage applicants.
+   * **loan_to_value_ratio_std:** Numeric input, ratio of the mortgage size to the value of the property of the applicants.
+   * **no_intro_rate_period_std:** Binary input, whether or not a mortgage includew an introductory rate period.
+   * **intro_rate_period_std:** Numeric input, standardized introductory rate period for the applicants.
    * **property_value_std:** Numeric input, value of the mortgaged property.
-   * **income_std:** Numeric input, standardized income for mortgage applicants.
+   * **income_std:** Numeric input, standardized income of the applicants.
    * **debt_to_income_ratio_std:** Numeric input, standardized debt-to-income ratio for mortgage applicants.
-   * **high_priced:** Binary target, whether (1) or not (0) the annual percentage rate (APR) charged for a mortgage is 150 basis points (1.5%) or more above a survey-based estimate of similar mortgages. (High-priced mortgages are legal, but somewhat punitive to borrowers. High-priced mortgages often fall on the shoulders of minority home owners, and are one of many issues that perpetuates a massive disparity in overall wealth between different demographic groups in the US.)
+   * **high_priced:** Binary input, whether (1) or not (0) the annual percentage rate (APR) charged for a mortgage is 150 basis points (1.5%) or more above a survey-based estimate of similar mortgages. (High-priced mortgages are legal, but somewhat punitive to borrowers. High-priced mortgages often fall on the shoulders of minority home owners, and are one of many issues that perpetuates a massive disparity in overall wealth between different demographic groups in the US.)
 
 #### \- Evaluation data
 
 * Home Mortgage Disclosure Act (HMDA) unlabeled test data.
   * https://github.com/jphall663/GWU_rml/tree/master/assignments/data
 * Test data rows = 19831, columns = 22.
-* Difference: Training data has a target variable "high_priced" than test data does.
+* Difference: Training data has an extra target variable column called "high_priced" than the test data.
 
 #### - Model details (ing)
 
@@ -145,11 +145,11 @@ Among Generalized linear models (GLM), Monotonic extreme gradient boosting (MXGB
 
 #### - Ethical considerations
 
-* Different criteria for models may cause different results. Training data used is Community, Transparency, Inclusivity, Privacy, and Topic-neutrality. Because of privacy considerations, the model does not take into account user history when making judgments about applicants’ background.
+* Different criterias chosen for building different models may cause different results. The training data used is transparent, has inclusivity, private, and neutral. Due to privacy considerations, the model does not take into account an applicant's personal/ biological history when making decisions about giving the loan or not.
 
 #### - Caveats and Recommendations
 
-* The training data are unbalanced, which may cause some unbalanced results in different groups for evaluation.
+* The training data is unbalanced, which may cause some unbalanced results in different groups during evaluation.
 
 
 
