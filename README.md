@@ -145,7 +145,7 @@ Among Generalized Linear Model (GLM), Monotonic Extreme Gradient Boosting (MXGB)
 
 #### - Ethical considerations
 
-* Different criterias chosen for building different models may cause different results. The training data used is transparent, has inclusivity, private, and neutral. Due to privacy considerations, the model does not take into account an applicant's personal/ biological history when making decisions about giving the loan or not.
+* Different criterias chosen for building the same models may cause varied results. The biased results will cause harm to people in the real world. The data used should be kept secure and extremely confidential since any illegitimate use will cause severe privacy concerns. The model will most likely start going in the wrong direction if it is not constantly maintained and managed. Everyone working on this kind of sensitive data should not poison the data for their personal ulterior motives which might be detrimental to others.
 
 #### - Caveats and Recommendations
 
