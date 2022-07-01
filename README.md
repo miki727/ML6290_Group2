@@ -63,7 +63,7 @@ Among Generalized Linear Model (GLM), Monotonic Gradient Boosting (MXGB), and Ex
   | property_value_std           | Numeric   | Input         | Value of the mortgaged property.                             |
   | income_std                   | Numeric   | Input         | Standardized income of the applicants.                       |
   | debt_to_income_ratio_std     | Numeric   | Input         | Standardized debt-to-income ratio of the applicants.         |
-  | high_priced                  | Binary    | Target        | Whether (1) or not (0) the annual percentage rate (APR) charged for a mortgage is 150 basis points (1.5%) or more above a survey-based estimate of similar mortgages. (High-priced mortgages are legal, but somewhat punitive to borrowers. High-priced mortgages often fall on the shoulders of minority home owners, and are one of many issues that perpetuates a massive disparity in overall wealth between different demographic groups in the US.) |
+  | high_priced                  | Binary    | Target        | Whether (1) or not (0) the annual percentage rate (APR) charged for a mortgage is 150 basis points (1.5%) or more above a survey-based estimate of similar mortgages. |
   
   
   
@@ -81,7 +81,7 @@ Among Generalized Linear Model (GLM), Monotonic Gradient Boosting (MXGB), and Ex
    | property_value_std           | Numeric   | Input         | Value of the mortgaged property.                             |
    | income_std                   | Numeric   | Input         | Standardized income for mortgage applicants.                 |
    | debt_to_income_ratio_std     | Numeric   | Input         | Standardized debt-to-income ratio for mortgage applicants.   |
-   | high_priced                  | Binary    | Target        | Whether (1) or not (0) the annual percentage rate (APR) charged for a mortgage is 150 basis points (1.5%) or more above a survey-based estimate of similar mortgages. (High-priced mortgages are legal, but somewhat punitive to borrowers. High-priced mortgages often fall on the shoulders of minority home owners, and are one of many issues that perpetuates a massive disparity in overall wealth between different demographic groups in the US.) |
+   | high_priced                  | Binary    | Target        | Whether (1) or not (0) the annual percentage rate (APR) charged for a mortgage is 150 basis points (1.5%) or more above a survey-based estimate of similar mortgages. |
 
    
 
