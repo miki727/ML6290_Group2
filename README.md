@@ -157,14 +157,12 @@ Among Generalized Linear Model (GLM), Monotonic Gradient Boosting (MXGB), and Ex
   
   * **Adverse impact ratio:**
   
-
-| Compare v. Control            | AIR   |
-| ----------------------------- | ----- |
-| Asian people vs. White people | 1.142 |
-| Black people vs. White people | 0.800 |
-| Females vs. Males             | 0.959 |
-
-
+    | Compare v. Control            | AIR   |
+    | ----------------------------- | ----- |
+    | Asian people vs. White people | 1.142 |
+    | Black people vs. White people | 0.800 |
+    | Females vs. Males             | 0.959 |
+  
 
 * **Model extraction attack:**
 
