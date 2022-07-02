@@ -67,21 +67,7 @@ Among Generalized Linear Model (GLM), Monotonic Gradient Boosting (MXGB), and Ex
   
   
   
- * **Definition of all engineered columns:**
-
-   | Row_id                       | Data Type | Variable Role | Description                                                  |
-   | ---------------------------- | --------- | ------------- | ------------------------------------------------------------ |
-   | term 360                     | Binary    | Input         | Whether the mortgage is a standard 360 month mortgage (1) or a different type of mortgage (0). |
-   | conforming                   | Binary    | Input         | Whether the mortgage conforms to normal standards (1), or whether the loan is different (0), e.g., jumbo, HELOC, reverse mortgage, etc. |
-   | debt_to_income_ratio_missing | Binary    | Input         | Missing marker (1) for debt to income ratio std.             |
-   | loan_amount_std              | Numeric   | Input         | Standardized amount of the mortgage for applicants.          |
-   | no_intro_rate_period_std     | Binary    | Input         | Whether or not a mortgage does not include an introductory rate period. |
-   | intro_rate_period_std        | Numeric   | Input         | Standardized introductory rate period for mortgage applicants. |
-   | property_value_std           | Numeric   | Input         | Value of the mortgaged property.                             |
-   | income_std                   | Numeric   | Input         | Standardized income for mortgage applicants.                 |
-   | debt_to_income_ratio_std     | Numeric   | Input         | Standardized debt-to-income ratio for mortgage applicants.   |
-   
-   
+  
 
 #### \- Evaluation data
 
@@ -109,7 +95,7 @@ Among Generalized Linear Model (GLM), Monotonic Gradient Boosting (MXGB), and Ex
 
 * **The type of the best model:** Explainable Boosting Machine (EBM)
 
-* **Software and the version:** python (3.9.7), Anaconda (2021.11)
+* **Software and the version:** python (3.9.7), Anaconda (2021.11), Interpret (0.2.7)
 
 * **Hyperparameters:** 
 
@@ -137,7 +123,7 @@ Among Generalized Linear Model (GLM), Monotonic Gradient Boosting (MXGB), and Ex
   | MXGB  | 0.7921 |
   | EBM   | 0.8249 |
 
-* **Feature importance：**The best EBM feature importance plot shows global importance in EBM to make a feature selection. 
+* **Feature importance：**The best EBM feature importance plot shows global variable importance in EBM to make a feature selection. 
 
 <img src="ModelCard_picSource/A02_global_feature_importance.png" alt="image-20220626012215871" style="zoom: 67%;" />
 
@@ -193,6 +179,14 @@ Among Generalized Linear Model (GLM), Monotonic Gradient Boosting (MXGB), and Ex
   * **Sensitivity analysis (Stress Testing)**:  Simulate recession conditions in validation data.
   
     ![image-20220629220924902](ModelCard_picSource/image-20220629220924902.png)
+  
+  * **Result for Remediation:**
+  
+    | Partition  | AUC    |
+    | ---------- | ------ |
+    | Validation | 0.6554 |
+  
+    
   
   * **Residual Analysis:** Residuals Plot for removing outliers.
   
