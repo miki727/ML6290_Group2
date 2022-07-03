@@ -123,7 +123,7 @@ Among Generalized Linear Model (GLM), Monotonic Gradient Boosting (MXGB), and Ex
   | MXGB  | 0.7921 |
   | EBM   | 0.8249 |
 
-* **Feature importance:**The best EBM feature importance plot shows global variable importance in EBM to make a feature selection.
+* **Feature importance:** The best EBM feature importance plot shows global variable importance in EBM to make a feature selection.
 
 <img src="ModelCard_picSource/A02_global_feature_importance.png" alt="image-20220626012215871" style="zoom: 67%;" />
 
