@@ -115,7 +115,7 @@ Among Generalized Linear Model (GLM), Monotonic Gradient Boosting (MXGB), and Ex
 
 #### - Quantitative analysis 
 
-* **Model selection:** Our criteria is AUC and the higher AUC means the better model. Based on the following value, we choose EBM model as the best model.
+* **Model selection:** Our criteria is AUC and the higher AUC means the better model. Based on the following value, we choose EBM model as the best model. 
 
   | Model | AUC    |
   | ----- | ------ |
